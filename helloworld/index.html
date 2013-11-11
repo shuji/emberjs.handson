@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/x-handlebars" >
+<h1>Hello, {{App.user.fullName}}!</h1>
+First Name: {{input value=App.user.firstName}}
+Last Name: {{input value=App.user.lastName}}
+</script>
+<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="handlebars-1.0.0.js"></script>
+<script type="text/javascript" src="ember.js"></script>
+<script type="text/javascript">
+window.App = Ember.Application.create();
+App.User = Ember.Object.extend({
+firstName: 'shuji',
+lastName: 'Watanabe',
+fullName: function() { 
+	return this.get('firstName') + ' ' + this.get('lastName');
+}.property('firstName', 'lastName')
+});
+App.user = App.User.create({
+});
+</script>
+</body>
+</html>
