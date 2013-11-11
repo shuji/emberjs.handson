@@ -20,6 +20,7 @@ Todos.TodoController = Ember.ObjectController.extend({
     },
     acceptChanges: function () {
       this.set('isEditing', false);
+      
 
       if (Ember.isEmpty(this.get('model.title'))) {
         this.send('removeTodo');
