@@ -49,6 +49,15 @@ Todos.TodosController = Ember.ArrayController.extend({
       completed.invoke('deleteRecord');
       completed.invoke('save');
     }    
+  },
+  
+  init: function() {
+	  var self = this;
+	  var updateTitle = function() {
+		  document.title = "Ember.js TodoMVC (" + self.get('remaining') + ")";
+	  };
+	  this.addObserver('remaining', updateTitle);
+	  updateTitle();
   }
 });
 
