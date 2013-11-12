@@ -16,6 +16,10 @@ Todos.TodosController = Ember.ArrayController.extend({
     return this.filterBy('isCompleted', true).get('length');
   }.property('@each.isCompleted'),
   
+  allAreDone: function (key, value) {
+    return !!this.get('length') && this.everyBy('isCompleted', true);
+  }.property('@each.isCompleted'),
+  
   actions: {
     createTodo: function () {
       // Get the todo title set by the "New Todo" text field
